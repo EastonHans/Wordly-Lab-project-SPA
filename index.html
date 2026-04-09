@@ -1,26 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Syne:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
-    <link rel="icon" href="images/w.svg" type="image/icon">
-    <link rel="stylesheet" href="style.css">
-    <title>Wordly Dictionary</title>
-</head>
-<body>
-    <header>
-        <h1>Wordly Dictionary</h1>
-    </header>
-    <main>
-        <form id="search-form">
-            <input type="text" id="word-input" placeholder="Enter a word" aria-label="Word to search" required>
-            <button type="submit">Search</button>
-        </form>
-        <section id="results" aria-live="polite">
-            <p>Enter a word above to get started.</p>
-        </section>
-    </main>
-    <script src="script.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Syne:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+        <link rel="icon" href="images/w.svg" type="image/icon">
+        <link rel="stylesheet" href="style.css">
+        <title>Wordly Dictionary</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Wordly Dictionary</h1>
+        </header>
+        <main>
+            <form id="search-form">
+                <input type="text" id="word-input" placeholder="Enter a word" aria-label="Word to search" list="suggestions" required>
+                <datalist id="suggestions"></datalist>
+                <button type="submit">Search</button>
+            </form>
+            <section id="results" aria-live="polite">
+                <p>Enter a word above to get started.</p>
+            </section>
+        </main>
+        <script src="script.js"></script>
+    </body>
 </html>

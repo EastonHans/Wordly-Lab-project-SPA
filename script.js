@@ -1,6 +1,26 @@
 const form = document.getElementById('search-form');
         const input = document.getElementById('word-input');
         const results = document.getElementById('results');
+        const suggestions = document.getElementById('suggestions');
+
+        input.addEventListener('input', async () => {
+            const word = input.value.trim();
+            if (word.length < 2) {
+                suggestions.innerHTML = '';
+                return;
+            }
+
+            try {
+                const response = await fetch(`https://api.datamuse.com/words?sp=${word}*&max=10`);
+                if (!response.ok) throw new Error('Suggestions not available');
+
+                const data = await response.json();
+                suggestions.innerHTML = data.map(item => `<option value="${item.word}">`).join('');
+            } catch (error) {
+                console.error('Error fetching suggestions:', error);
+                suggestions.innerHTML = '';
+            }
+        });
 
         form.addEventListener('submit', async (e) => {
             e.preventDefault();
